@@ -1,0 +1,13 @@
+EX Query con Select
+
+SELECT `date_of_birth` FROM `students` WHERE `date_of_birth` LIKE '1990%' ;
+SELECT `cfu` FROM `courses` WHERE cfu > 10; 
+SELECT --------------
+SELECT `period`,`year` FROM `courses` WHERE `period` = 'I semestre' AND `year` = '1'; 
+SELECT `date`,`hour` FROM `exams` WHERE `date` = '2020/06/20' AND `hour` > '14:00'; 
+SELECT `level` FROM `degrees` WHERE `level` = 'magistrale'; 
+SELECT id FROM `departments`; 
+SELECT `phone` FROM `teachers` WHERE `phone` IS NULL; 
+
+
+EX Query con Group By
