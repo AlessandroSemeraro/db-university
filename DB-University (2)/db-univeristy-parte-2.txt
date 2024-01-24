@@ -1,18 +1,44 @@
 EX Query con Select
 
-SELECT `date_of_birth` FROM `students` WHERE `date_of_birth` LIKE '1990%' ;
-SELECT `cfu` FROM `courses` WHERE cfu > 10; 
-SELECT * FROM `students` WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE ()) > 30  
-SELECT `period`,`year` FROM `courses` WHERE `period` = 'I semestre' AND `year` = '1'; 
-SELECT `date`,`hour` FROM `exams` WHERE `date` = '2020/06/20' AND `hour` > '14:00'; 
-SELECT `level` FROM `degrees` WHERE `level` = 'magistrale'; 
-SELECT COUNT(*) FROM `departments`; 
-SELECT `phone` FROM `teachers` WHERE `phone` IS NULL; 
+SELECT `date_of_birth` 
+FROM `students` 
+WHERE `date_of_birth` 
+LIKE '1990%' ;
+
+SELECT `cfu` 
+FROM `courses` 
+WHERE cfu > 10;
+
+SELECT * 
+FROM `students` 
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE ()) > 30;
+
+SELECT `period`,`year` 
+FROM `courses` 
+WHERE `period` = 'I semestre' 
+AND `year` = '1';
+
+SELECT `date`,`hour` 
+FROM `exams` 
+WHERE `date` = '2020/06/20' 
+AND `hour` > '14:00:00' ; 
+
+SELECT `level` 
+FROM `degrees`
+WHERE `level` = 'magistrale';
+
+SELECT COUNT(*) 
+FROM `departments`; 
+
+SELECT `phone` 
+FROM `teachers` 
+WHERE `phone` IS NULL;
+
 
 
 EX Query con Group By
 
-SELECT YEAR (`enrolment_data`) AS `anno_iscrizione` , COUNT(*)
+SELECT YEAR (`enrolment_date`) AS `anno_iscrizione` , COUNT(*)
 FROM `students`
 GROUP BY `anno_iscrizione`;
 
@@ -20,9 +46,9 @@ SELECT `office_address` , COUNT(*)
 FROM `teachers`
 GROUP BY `office_address`;
 
-SELECT `exam_id`, AVG (`vote`)
+SELECT `exam_id`, round (AVG(`vote`), 1)
 FROM `exam_student`
-GROUP BY AVG(`exam_id`);
+GROUP BY `exam_id`;
 
 SELECT `department_id` , COUNT(*)
 FROM `degrees`
